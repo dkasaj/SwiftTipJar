@@ -71,6 +71,13 @@ public final class SwiftTipJar: NSObject {
         return priceFormatter.string(from: product.price)
     }
 
+    public func localizedTitleFor(identifier: String) -> String? {
+        guard let product = productFor(identifier: identifier) else {
+            return nil
+        }
+        return product.localizedTitle
+    }
+
     // MARK: - Payment queue
 
     public var isObservingPaymentQueue: Bool {
