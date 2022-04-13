@@ -32,6 +32,7 @@ public final class SwiftTipJar: NSObject {
         productIdentifiers = tipsIdentifiers
         super.init()
         transactionProcessor = self
+        setupProductsRequest()
     }
 
     // MARK: - Safety precaution
