@@ -17,7 +17,7 @@ public final class SwiftTipJar: NSObject {
     public private(set) var productIdentifiers: Set<String>
     public private(set) var productsRequest: SKProductsRequest?
     public private(set) var productsResponse: SKProductsResponse?
-    public var productsReceivedBlock: (() -> Void)?
+    public var productsReceivedBlock: (([SKProduct]) -> Void)?
     public var transactionSuccessfulBlock: (() -> Void)?
     public var transactionFailedBlock: (() -> Void)?
 
@@ -112,7 +112,7 @@ extension SwiftTipJar: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if request === productsRequest {
             productsResponse = response
-            productsReceivedBlock?()
+            productsReceivedBlock?(response.products)
         }
     }
 }
