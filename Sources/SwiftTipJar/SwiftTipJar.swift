@@ -116,7 +116,7 @@ extension SwiftTipJar: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if request === productsRequest {
             productsResponse = response
-            for product in response.products {
+            for product in response.products.sorted(by: { ($0.price as Decimal) < ($1.price as Decimal) }) {
                 let tip = Tip()
                 tip.identifier = product.productIdentifier
                 tip.displayName = product.localizedTitle
