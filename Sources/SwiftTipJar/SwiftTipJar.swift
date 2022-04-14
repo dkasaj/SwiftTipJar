@@ -153,9 +153,9 @@ extension SwiftTipJar: TransactionProcessing {
 
 public final class Tip {
 
-    var identifier: String = ""
-    var displayName: String = ""
-    var displayPrice: String = ""
+    public var identifier: String = ""
+    public var displayName: String = ""
+    public var displayPrice: String = ""
 
     var isValid: Bool {
         return !identifier.isEmpty && !displayName.isEmpty && !displayPrice.isEmpty
