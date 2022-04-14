@@ -79,6 +79,10 @@ public final class SwiftTipJar: NSObject, ObservableObject {
         return product.localizedTitle
     }
 
+    public func tipWith(identifier: String) -> Tip? {
+        return tips.first(where: { $0.identifier == identifier })
+    }
+
     // MARK: - Payment queue
 
     public var isObservingPaymentQueue: Bool {
