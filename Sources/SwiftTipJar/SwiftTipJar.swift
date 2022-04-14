@@ -17,7 +17,7 @@ public final class SwiftTipJar: NSObject {
     public private(set) var productIdentifiers: Set<String>
     public private(set) var productsRequest: SKProductsRequest?
     public private(set) var productsResponse: SKProductsResponse?
-    public var productsReceivedBlock: (([SKProduct]) -> Void)?
+    @Published public private(set) var tips: [Tip] = []
     public var transactionSuccessfulBlock: (() -> Void)?
     public var transactionFailedBlock: (() -> Void)?
 
@@ -112,7 +112,15 @@ extension SwiftTipJar: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if request === productsRequest {
             productsResponse = response
-            productsReceivedBlock?(response.products)
+            for product in response.products {
+                let tip = Tip()
+                tip.identifier = product.productIdentifier
+                tip.displayName = product.localizedTitle
+                tip.displayPrice = localizedPriceFor(identifier: product.productIdentifier) ?? ""
+                if tip.isValid {
+                    tips.append(tip)
+                }
+            }
         }
     }
 }
@@ -141,4 +149,16 @@ extension SwiftTipJar: TransactionProcessing {
             }
         }
     }
+}
+
+public final class Tip {
+
+    var identifier: String = ""
+    var displayName: String = ""
+    var displayPrice: String = ""
+
+    var isValid: Bool {
+        return !identifier.isEmpty && !displayName.isEmpty && !displayPrice.isEmpty
+    }
+
 }
