@@ -156,13 +156,12 @@ extension SwiftTipJar: TransactionProcessing {
 }
 
 public final class Tip {
-
     public var identifier: String = ""
     public var displayName: String = ""
     public var displayPrice: String = ""
 
+    /// TipJar uses this to quickly check if it should include this Tip in its published array.
     var isValid: Bool {
         return !identifier.isEmpty && !displayName.isEmpty && !displayPrice.isEmpty
     }
-
 }
