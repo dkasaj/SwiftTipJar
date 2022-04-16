@@ -9,7 +9,19 @@ Here are [SwiftUI sample code](https://github.com/dkasaj/SwiftTipJar-SwiftUI-Exa
 All you need to do is polish your UI and configure _Consumable_ IAPs in App Store Connect or an Xcode StoreKit Configuration<br>(see [Setting up StoreKit testing in Xcode](https://developer.apple.com/documentation/xcode/setting-up-storekit-testing-in-xcode)).
 
 
+## Installation
 
+SwiftTipJar is available through [Swift Package Manager](https://swift.org/package-manager/).
+
+In Xcode, click File > Add Packages...
+Select GitHub under Source Control Accounts
+Search for SwiftTipJar
+Click "Add Package" in bottom right
+
+
+## Usage
+
+For a quick start refer to [SwiftUI sample code](https://github.com/dkasaj/SwiftTipJar-SwiftUI-Example) and [UIKit sample code](https://github.com/dkasaj/SwiftTipJar-UIKit-Example).
 
 ## Backstory
 
@@ -25,4 +37,4 @@ Then it hit me - pretty much all tip jars work the same way, right? While learni
 Thus I created SwiftTipJar. Use it, and hopefully get some tips out of it!
 
 P.S.
-If you find any code smells feel free to open an issue or 
+If you find any code smells or documentation smells, feel free to open an issue 
