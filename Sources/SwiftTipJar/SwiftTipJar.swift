@@ -17,8 +17,16 @@ public final class SwiftTipJar: NSObject, ObservableObject {
     public private(set) var productIdentifiers: Set<String>
     public private(set) var productsRequest: SKProductsRequest?
     public private(set) var productsResponse: SKProductsResponse?
+
     @Published public private(set) var tips: [Tip] = []
+
+    // Closure to run after product info has come back from ASC or Xcode StoreKit Configuration
+    public var productsReceivedBlock: (() -> Void)?
+
+    // Closure to run after payment is successful
     public var transactionSuccessfulBlock: (() -> Void)?
+
+    // Closure to run after payment is cancelled
     public var transactionFailedBlock: (() -> Void)?
 
     public var transactionProcessor: TransactionProcessing?
@@ -125,6 +133,7 @@ extension SwiftTipJar: SKProductsRequestDelegate {
                     tips.append(tip)
                 }
             }
+            productsReceivedBlock?()
         }
     }
 }
