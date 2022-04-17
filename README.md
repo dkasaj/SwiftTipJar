@@ -13,10 +13,10 @@ All you need to do is polish your UI and configure _Consumable_ IAPs in App Stor
 
 SwiftTipJar is available through [Swift Package Manager](https://swift.org/package-manager/).
 
-In Xcode, click File > Add Packages...
-Select GitHub under Source Control Accounts
-Search for SwiftTipJar
-Click "Add Package" in bottom right
+- In Xcode, click File > Add Packages...
+- Select GitHub under Source Control Accounts
+- Search for SwiftTipJar
+- Click "Add Package" in bottom right
 
 
 ## Usage
