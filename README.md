@@ -6,7 +6,7 @@ On Apple patforms, tip jars are a concept of letting users make in-app purchases
 
 Here are [SwiftUI sample code](https://github.com/dkasaj/SwiftTipJar-SwiftUI-Example) and [UIKit sample code](https://github.com/dkasaj/SwiftTipJar-UIKit-Example) that demonstrate this.
 
-All you need to do is polish your UI and configure _Consumable_ IAPs in App Store Connect or an Xcode StoreKit Configuration<br>(see [Setting up StoreKit testing in Xcode](https://developer.apple.com/documentation/xcode/setting-up-storekit-testing-in-xcode)).
+All you need to do is polish your UI and configure _Consumable_ APIs in App Store Connect or an Xcode StoreKit Configuration<br>(see [Setting up StoreKit testing in Xcode](https://developer.apple.com/documentation/xcode/setting-up-storekit-testing-in-xcode)).
 
 
 ## Installation
