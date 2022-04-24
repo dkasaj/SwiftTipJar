@@ -124,14 +124,18 @@ extension SwiftTipJar: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if request === productsRequest {
             productsResponse = response
+            var allTips = [Tip]()
             for product in response.products.sorted(by: { ($0.price as Decimal) < ($1.price as Decimal) }) {
                 let tip = Tip()
                 tip.identifier = product.productIdentifier
                 tip.displayName = product.localizedTitle
                 tip.displayPrice = localizedPriceFor(identifier: product.productIdentifier) ?? ""
                 if tip.isValid {
-                    tips.append(tip)
+                    allTips.append(tip)
                 }
+            }
+            DispatchQueue.main.sync { [weak self] in
+                self?.tips = allTips
             }
             productsReceivedBlock?()
         }
